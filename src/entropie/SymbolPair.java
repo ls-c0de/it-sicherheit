@@ -4,8 +4,10 @@ public class SymbolPair {
 	private char symbol;
 	private int anzahl = 1;
 	private double relHauf;
-	private static int maxAnzahl;
 	private double iFromS;
+	
+	private static int maxAnzahl;
+	private static double entropie;
 	
 	public SymbolPair(char symbol) {
 		this.symbol = symbol;
@@ -22,6 +24,7 @@ public class SymbolPair {
 		maxAnzahl = anz;
 		relHauf =  (double) anzahl / (double) maxAnzahl;
 		iFromS = - (Math.log10(relHauf) / Math.log10(2));
+		entropie += relHauf * iFromS;
 	}
 	/**
 	 * Adds 1 to the anzahl count.
@@ -46,6 +49,10 @@ public class SymbolPair {
 
 	public double getRelHauf() {
 		return relHauf;
+	}
+
+	public static double getEntropie() {
+		return entropie;
 	}
 
 }

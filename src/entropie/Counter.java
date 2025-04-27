@@ -5,6 +5,7 @@ public class Counter {
 	private SymbolPair[] arr = new SymbolPair[MAXPAIRS];
 	char[] dough;
 	char[] bread;
+	int anzahlSymbole = 0;
 	
 	public void countText(String text) {
 		String bereinigterText = text.replaceAll("[\\n\\r\\t ]", "");
@@ -20,9 +21,13 @@ public class Counter {
 //		for (SymbolPair s : arr) {
 //			System.out.println(s.toString());
 //		}
+		int zeichenGes = bread.length;
+		
 		for (int i = 0;i < arr.length;i++) {
+			arr[i].compute(zeichenGes);
 			System.out.println(arr[i].toString());
 			if (arr[i+1] == null) {
+				anzahlSymbole = i+1;
 				break;
 			}
 		}

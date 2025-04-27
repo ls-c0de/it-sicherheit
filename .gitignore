@@ -1,6 +1,9 @@
 /bin
 
+# Text der ausgewertet soll
+text.txt
 
 #Eclipse Stuff 
 /.project
 /.settings
+/.classpath

@@ -18,9 +18,7 @@ public class Counter {
 	}
 
 	public void output() {
-//		for (SymbolPair s : arr) {
-//			System.out.println(s.toString());
-//		}
+
 		int zeichenGes = bread.length;
 		
 		for (int i = 0;i < arr.length;i++) {
@@ -32,20 +30,8 @@ public class Counter {
 			}
 		}
 		System.out.println("\n\n Zeichen gesamt: " + bread.length);
+		System.out.println("Entropie " + SymbolPair.getEntropie());
 	}
-
-//	private void einordnenOLD(char symbol) {
-//		for (int i = 0; i < arr.length; i++) {
-//			if (arr[i].compare(symbol)) {
-//				arr[i].addOne();
-//			}
-//			if (arr[i] == null) {
-//				arr[i].addOne();
-//				break;
-//			} else
-//				arr[i] = new SymbolPair(symbol);
-//		}
-//	}
 	
 	private void einordnen(char symbol) {
 		for (int i = 0; i < arr.length; i++) {

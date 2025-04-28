@@ -50,6 +50,10 @@ public class SymbolPair {
 	public double getRelHauf() {
 		return relHauf;
 	}
+	
+	public double getiFromS() {
+		return iFromS;
+	}
 
 	public static double getEntropie() {
 		return entropie;

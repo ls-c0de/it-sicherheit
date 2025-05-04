@@ -3,7 +3,7 @@ package ue5;
 import java.util.Random;
 
 public class Main {
-	private static int bitlength = 8;
+	private static int bits = 8;
 	private static int maxZahlen = 10;
 	private static int maxTrys = 10000;
 
@@ -16,7 +16,7 @@ public class Main {
 			int collisions = 0;
 			// generate X random numbers
 			for (int i = 0; i < numbers.length; i++) {
-				numbers[i] = createRandomNumber(bitlength);
+				numbers[i] = createRandomNumber(bits);
 
 				// check for collisions
 				for (int j = 0; j < i; j++) {
@@ -30,7 +30,7 @@ public class Main {
 		}
 		
 		//Auswertung
-		System.out.println("\n %: " + (double) maxTrys/ (double) auswertung(collisioncnt));
+		System.out.println("\n %: " + (double) auswertung(collisioncnt) / (double) maxTrys );
 	}
 
 	private static int auswertung(int[] collisioncnt) {

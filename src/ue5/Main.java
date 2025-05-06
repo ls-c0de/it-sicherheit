@@ -6,7 +6,7 @@ import java.util.Random;
 public class Main {
 	private static int bits = 8;
 	private static int maxZahlen = 10;
-	private static int maxTrys = 1000000;
+	private static int maxTrys = 10000;
 
 	public static void main(String[] args) {
 		int[] collisioncnt = new int[maxTrys];
@@ -20,13 +20,14 @@ public class Main {
 			// generate X random numbers
 			for (int i = 0; i < numbers.length; i++) {
 				int number = createRandomNumber(bits);
-				hash.add(number);
-
+				
 				// check for collisions
 				// Hashset, Kollision checken 
 				if (hash.contains(number)) {
 					collisions++;
 				}
+
+				hash.add(number);
 				
 			}
 			collisioncnt[trys] = collisions;

@@ -1,29 +1,33 @@
 package ue5;
 
+import java.util.HashSet;
 import java.util.Random;
 
 public class Main {
 	private static int bits = 8;
 	private static int maxZahlen = 10;
-	private static int maxTrys = 10000;
+	private static int maxTrys = 1000000;
 
 	public static void main(String[] args) {
 		int[] collisioncnt = new int[maxTrys];
 		
 		for (int trys = 0; trys < maxTrys; trys++) {
 
+			HashSet<Integer> hash = new HashSet<>();
 			int[] numbers = new int[maxZahlen];
 			int collisions = 0;
+			
 			// generate X random numbers
 			for (int i = 0; i < numbers.length; i++) {
-				numbers[i] = createRandomNumber(bits);
+				int number = createRandomNumber(bits);
+				hash.add(number);
 
 				// check for collisions
-				for (int j = 0; j < i; j++) {
-					if (numbers[j] == numbers[i]) {
-						collisions++;
-					}
+				// Hashset, Kollision checken 
+				if (hash.contains(number)) {
+					collisions++;
 				}
+				
 			}
 			collisioncnt[trys] = collisions;
 			System.out.println("Try " + trys + ": " + collisions);

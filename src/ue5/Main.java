@@ -6,12 +6,14 @@ import java.util.Random;
 public class Main {
 	private static int bits = 8;
 	private static int maxZahlen = 10;
-	private static final int MAX_TRYS = 10000;
-
+	private static final int MAX_TRIES = 10000;
+	private static final Random rng = new Random();
+	
+	
 	public static void main(String[] args) {
-		int[] collisionsPerTry = new int[MAX_TRYS];
+		int[] collisionsPerTry = new int[MAX_TRIES];
 		
-		for (int trys = 0; trys < MAX_TRYS; trys++) {
+		for (int trys = 0; trys < MAX_TRIES; trys++) {
 
 			HashSet<Integer> hash = new HashSet<>();
 			int[] numbers = new int[maxZahlen];
@@ -33,7 +35,7 @@ public class Main {
 		}
 		
 		//Auswertung
-		System.out.println("\n %: " + (double) auswertung(collisionsPerTry) / (double) MAX_TRYS );
+		System.out.println("\n %: " + (double) auswertung(collisionsPerTry) / (double) MAX_TRIES );
 	}
 
 	private static int auswertung(int[] collisioncnt) {
@@ -48,8 +50,8 @@ public class Main {
 	}
 	
 	private static int createRandomNumber(int bitlength) {
-		Random rng = new Random();
-		int number = rng.nextInt((int) Math.pow(2, bitlength));
+		//Random rng = new Random();
+		int number = rng.nextInt(1 << bitlength);
 		return number;
 	}
 }
